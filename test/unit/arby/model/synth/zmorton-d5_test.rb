@@ -1,7 +1,7 @@
 require 'unit/arby/model/synth/zmorton_test_base'
 require 'arby_models/synth/zmorton-d5'
 
-class SynthParityAigD1Test < SynthZMortonTestBase
+class SynthZMortonTest < SynthZMortonTestBase
   include SDGUtils::Testing::SmartSetup
   include SDGUtils::Testing::Assertions
   include Arby::Bridge
