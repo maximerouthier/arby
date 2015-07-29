@@ -351,6 +351,11 @@ module Arby
         end
       end
 
+      # Returns a flat array of all the atoms contained in the tupleset.
+      def atoms
+        @tuples.flat_map {|tuple| tuple.atoms }
+      end
+
       private
 
       def check_same_arity(other)
