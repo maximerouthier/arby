@@ -356,6 +356,19 @@ module Arby
         @tuples.flat_map {|tuple| tuple.atoms }
       end
 
+      # Finds and returns an atom contained in the tupleset, by its 'name'
+      # attribute.
+      def find_atom_by_name(name)
+        index = self.atoms.index {|x| x.name == name }
+        self.atoms[index]
+      end
+
+      # Selects and returns an array of atoms contained in the tupleset, by
+      # their 'name' attributes.
+      def select_atoms_by_names(names)
+        names.map {|name| find_atom_by_name(name) }
+      end
+
       private
 
       def check_same_arity(other)
