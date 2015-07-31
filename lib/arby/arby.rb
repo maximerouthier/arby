@@ -1,5 +1,6 @@
 require 'arby/arby_conf'
 require 'arby/arby_event_constants'
+require 'arby/core_ruby_modifications'
 
 require 'sdg_utils/test_and_set'
 require 'sdg_utils/meta_utils'
