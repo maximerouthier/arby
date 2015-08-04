@@ -219,6 +219,23 @@ module Arby
         end
       end
 
+      #
+      # Creates and returns a tupleset from a given array of atoms.
+      #
+      # The array must be in the following formats :
+      #
+      #   [a0, a1, a2] or [[a0], [a1], [a2]]
+      #     -> {<a0>, <a1>, <a2>}
+      #
+      #   [[a0, a1], [a2, a3], [a4, a5]]
+      #     -> {<a0, a1>, <a2, a3>, <a4, a5>}
+      #
+      def self.parse(array)
+        Arby::Ast::TupleSet.wrap(
+          array.map {|x| Arby::Ast::Tuple.wrap(x) }
+        )
+      end
+
       def clone()      wrap(tuples, @type) end
       alias_method     :dup, :clone
 
