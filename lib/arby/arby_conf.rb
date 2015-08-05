@@ -90,7 +90,7 @@ module Arby
       c.logger                             = Logger.new(NilIO.instance)
       c.alloy_printer                      = default_alloy_printer_conf
       c.a4options                          = default_a4options
-      c.debug                              = true 
+      c.debug                              = false
     end
   end
 end
