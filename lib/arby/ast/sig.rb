@@ -348,6 +348,26 @@ module Arby
     class Sig
       include ASig
       meta.set_placeholder
+
+      #
+      # Including this module in the definition of a subclass of the Sig class
+      # has the effect of adding :
+      #
+      # - an instance variable named '@name',
+      # - accessor (getter and setter) methods for that variable
+      # - and an overriding of the instance method ASig#to_s to return '@name'
+      #   instead of '@__label' if a name has been previously initializated.
+      #
+      # The overriding has the beneficial effect of seeing a more representative
+      # atom name when using for example the Kernel#puts method.
+      #
+      module CustomizableName
+        attr_accessor :name
+
+        def to_s
+          @name ? @name : @__label
+        end
+      end
     end
 
     def self.create_sig(name, super_cls=Arby::Ast::Sig)
